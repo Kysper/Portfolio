@@ -1,0 +1,109 @@
+*, body, html {
+    margin: 0;
+    padding: 0;
+    top: 0px;
+
+}
+
+.nav {
+    background-color: #000000;
+    display: block;
+    position: fixed;
+    width: 100%;
+    border-bottom: 5px solid white;
+    height: auto;
+    z-index: 2;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.links {
+    color: white;
+    display: inline;
+    position: relative;
+    text-decoration: none;
+    list-style: none;
+    font-size: 30px;
+    padding-left: 14%;
+    margin: 20px;
+}
+
+.links:hover {
+    color: white;
+    display: inline;
+    position: relative;
+    text-decoration: none;
+    list-style: none;
+    font-size: 30px;
+    padding-left: 14%;
+    margin: 20px;
+}
+
+.top-section {
+    background:black;
+    height: 100vh;
+    width: 100vw;
+}
+
+.card {
+    border: 2px solid lightslategray;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 10px 10x 10px gray;
+}
+
+.card-body {
+    display: inline;
+    position: relative;
+}
+
+.card-img-top {
+    display: block;
+    position: relative;
+    float: left;
+    box-shadow: 4px 4px 2px gray;
+    margin-right: 20px;
+}
+
+p {
+    color: #000000;
+    font-size: 30px;
+}
+
+.btn {
+    float: right;
+    background-color: black;
+    padding: 10px;
+}
+
+.logo {
+    font-size: 100px;
+    z-index: 1;
+    display: inline-block;
+    position: relative;
+    top: 30vh;
+    left: 40vw;
+    color: white;
+    border: 6px solid white;
+    background: black;
+    padding: 50px;
+    transform: scale(2, 2)
+}
+
+.middle-section {
+    position: relative;
+    background: white;
+    color: black;
+    z-index: 1;
+}
+
+.bottom-section {
+    position: relative;
+    background: black;
+    color: white;
+    z-index: 1;
+}
