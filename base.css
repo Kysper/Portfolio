@@ -9,7 +9,6 @@
     background-color: #000000;
     display: block;
     position: fixed;
-    width: 100%;
     border-bottom: 5px solid white;
     height: auto;
     z-index: 2;
@@ -47,6 +46,8 @@
     background:black;
     height: 100vh;
     width: 100vw;
+    max-width:cover;
+    min-width:fit-content;
 }
 
 .card {
@@ -57,7 +58,7 @@
 }
 
 .card-body {
-    display: inline;
+    display: block;
     position: relative;
 }
 
@@ -83,16 +84,20 @@ p {
 .logo {
     font-size: 100px;
     z-index: 1;
-    display: inline-block;
+    display: inline;
     position: relative;
-    top: 30vh;
-    left: 40vw;
+    top:40%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    left:30%;
+    width:fit-content;
+    padding-left:10%;
+    padding-right:10%;
     color: white;
-    border: 6px solid white;
+    border: 1px solid white;
     background: black;
-    padding: 50px;
-    transform: scale(2, 2)
+    transform:scale(2,2);
+    text-align: center;
 }
+
 
 .middle-section {
     position: relative;
@@ -103,7 +108,6 @@ p {
 
 .bottom-section {
     position: relative;
-    background: black;
     color: white;
     z-index: 1;
 }
