@@ -1,6 +1,6 @@
 
 const topContainer = document.querySelector('.top-section');
-let numberOfStars = randomInt(100, 500);
+let numberOfStars = 120;
 let starList = [];
 let stars, textNodes, min, max, glyphs, glyphText;
 
