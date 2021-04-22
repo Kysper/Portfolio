@@ -9,16 +9,18 @@ html body {
    
     display:block;
     position:relative;
-    z-index:0;
+    z-index:-1;
     width:100%;
-    height:100%;
+    height:100vh;
     background:black;
     color:white;
-    border-top:10px solid whitesmoke;
-    border-bottom:10px solid whitesmoke;
+   
 }
 
 .logo{
+    height:50%;
+    line-height: 2.5em;
+    border-top:5px solid whitesmoke;
     font-size:10em;
     text-align:center;
 }
@@ -34,4 +36,8 @@ html body {
     background:black;
     color:white;
     text-align:center;
+}
+
+.content {
+height:100vh;    
 }
