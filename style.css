@@ -1,43 +1,164 @@
 html body {
     font-family: 'Oswald', sans-serif;
-    padding:0;
-    margin:0;
-    color:#000000;
+    padding: 0;
+    margin: 0;
+    color: #000000;
 }
 
 .landing-page {
-   
-    display:block;
-    position:relative;
-    z-index:-1;
-    width:100%;
-    height:100vh;
-    background:black;
-    color:white;
-   
+    display: block;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    color: white;
 }
 
-.logo{
-    height:50%;
-    line-height: 2.5em;
-    border-top:5px solid whitesmoke;
-    font-size:10em;
-    text-align:center;
+.sidebar {
+    display: inline-block;
+    position: fixed;
+    top: 5rem;
+    opacity: 1;
+    z-index: 1;
+    background: #000000;
+    border-right: 2px solid #FFFFFF;
+    border-top: 2px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 20rem;
+    height: 80vh;
+}
+
+.links {
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+.tab {
+    z-index: 2;
+    background: black;
+    opacity: 1;
+    color: white;
+    line-height: 8.5rem;
+    font-size: 2rem;
+    width: 2rem;
+    padding: 1rem;
+    position: fixed;
+    height: 9rem;
+    top: 20rem;
+    left: 20rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: transparent;
+    border-top: 2px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    cursor:pointer;
+}
+
+.sidebar a {
+    /* z-index:1; */
+    display: block;
+    position: relative;
+    font-size: 4rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    line-height: 170px;
+}
+
+.sidebar a:hover {
+    background: linear-gradient(to bottom right ,gray,white,white,white,white,gray);
+    color: #000000;
+
+}
+
+
+.logo {
+    font-size: 15rem;
+    text-align: center;
 }
 
 .scroll-text {
-    font-size:2em;
-    padding-bottom:3rem;
-    text-align:center;
+    top: 15rem;
+    left: -5rem;
+    display: block;
+    position: relative;
 }
 
-.headers{
-
-    background:black;
-    color:white;
-    text-align:center;
+.scrolling {
+    font-size: 5em;
+    text-align: center;
 }
 
-.content {
-height:100vh;    
+.headers {
+    background: #000000;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.content-body {
+    height: 100vh;
+}
+
+@media screen and (max-width: 400px) {
+    .logo {
+        font-size: 5rem;
+    }
+    .links {
+        font-size: 1rem;
+    }
+    .scroll-text {
+        font-size: .5rem;
+    }
+    .tab {
+        width: 1rem;
+        padding: 10px;
+        font-size: 1rem;
+        text-align: center;
+        top: 12rem;
+    }
+    .sidebar {
+        top: 0;
+        height: 100vh;
+    }
+    .sidebar a {
+        font-size: 2rem;
+    }
+    .landing-page {
+        width: 100vw;
+        padding-left: 3rem;
+    }
+}
+
+@media screen and (width: 500px) {
+    .logo {
+        font-size: 8rem;
+    }
+    .tab {
+        width: 1.5rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .landing-page {
+        width: 100vw;
+        padding-left: 4rem;
+    }
+}
+
+@media screen and (width: 1000px) {
+    .logo {
+        font-size: 8rem;
+    }
+    .landing-page {
+        width: 100vw;
+    }
+    .tab {
+        width: 2rem;
+        font-size: 2rem;
+        text-align: center;
+    }
 }

@@ -1,7 +1,10 @@
+let tab, sideBar, links;
 
-function main (){
-    typingEffect();
-    // snapToView();
+function main() {
+  typingEffect();
+  //snaptoView();
+  sideBarToggle();
+  linksCloseAfterClick();
 }
 
 function typingEffect() {
@@ -21,9 +24,51 @@ function typingEffect() {
   scrollText.append(scrolling);
 }
 
-// function snapToView() {
-// const sectionHeaders = document.querySelectorAll('.headers')
-// console.log(sectionHeaders[0].parentElement.id)
-// }
+function snaptoView() {
+}
 
-   window.onload =  main();
+function sideBarToggle() {
+  //Set Variables
+  isOpen = false;
+  tab = document.querySelector(".tab");
+  sideBar = document.querySelector(".sidebar");
+  links = document.querySelector(".links");
+
+  // ResetSideBar
+  sideBar.style.width = "0rem";
+  tab.style.left = "0rem";
+  tab.textContent = ">>>";
+  links.style.display = "none";
+
+  tab.addEventListener("click", (event) => {
+    if (isOpen) {
+      sideBar.style.width = `22rem`;
+      tab.style.left = `22rem`;
+      tab.textContent = "<<<";
+      links.style.display = "block";
+      isOpen = false;
+    } else if (isOpen == false) {
+      sideBar.style.width = "0rem";
+      tab.style.left = "0rem";
+      tab.textContent = ">>>";
+      links.style.display = "none";
+
+      isOpen = true;
+    }
+  });
+}
+
+function linksCloseAfterClick() {
+  const a = document.querySelectorAll("a");
+  a.forEach((link) =>
+    link.addEventListener("click", (event) => {
+      console.log(link);
+      sideBar.style.width = "0rem";
+      tab.style.left = "0rem";
+      tab.textContent = ">>>";
+      links.style.display = "none";
+    })
+  );
+}
+
+window.onload = main();
