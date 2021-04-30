@@ -5,6 +5,7 @@ function main() {
   //snaptoView();
   sideBarToggle();
   linksCloseAfterClick();
+  darkMode();
 }
 
 function typingEffect() {
@@ -24,8 +25,7 @@ function typingEffect() {
   scrollText.append(scrolling);
 }
 
-function snaptoView() {
-}
+function snaptoView() {}
 
 function sideBarToggle() {
   //Set Variables
@@ -40,7 +40,7 @@ function sideBarToggle() {
   tab.textContent = ">>>";
   links.style.display = "none";
 
-  tab.addEventListener("click", (event) => {
+  tab.addEventListener("click" || "touch", (event) => {
     if (isOpen) {
       sideBar.style.width = `22rem`;
       tab.style.left = `22rem`;
@@ -69,6 +69,28 @@ function linksCloseAfterClick() {
       links.style.display = "none";
     })
   );
+}
+
+function darkMode() {
+  const toggle = document.getElementById("toggle");
+  const landingPage = document.querySelector(".landing-page");
+  const headers = document.querySelectorAll(".headers");
+
+  toggle.addEventListener("input", (e) => {
+    const isChecked = e.target.checked;
+console.log(isChecked)
+    if (isChecked) {
+      headers.forEach(el=> el.classList.remove("light-theme"));
+      headers.forEach(el=> el.classList.add("dark-theme"));
+      landingPage.classList.remove("light-theme");
+      landingPage.classList.add("dark-theme");
+    } else {
+      headers.forEach(el=> el.classList.add("light-theme"));
+      headers.forEach(el=> el.classList.remove("dark-theme"));
+      landingPage.classList.remove("dark-theme");
+      landingPage.classList.add("light-theme");
+    }
+  });
 }
 
 window.onload = main();

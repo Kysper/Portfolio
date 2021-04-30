@@ -1,164 +1,263 @@
+/*
+1: globals
+    1.1: html
+    1.2: body
+2: .side-bar
+    2.1:.tab
+    2.2:.links
+        2.2.1:.link
+3:.landing-page
+    3.1:.toggle
+        3.1.1:#toggle
+    3.2:.scroll-text
+        3.2.1:.logo
+        3.2.2:.scrolling
+4:content
+    4.1:#about
+        4.1.1:.headers
+        4.1.2:.content-body
+    4.2:#skillset
+        4.1.1:.headers
+        4.1.2:.content-body
+    4.3:#projects
+        4.1.1:.headers
+        4.1.2:.content-body
+    4.4:#contact
+        4.1.1:.headers
+        4.1.2:.content-body
+5:footer
+
+6:responsive-css
+
+
+*/
+
+/*1:globals*/
 html body {
-    font-family: 'Oswald', sans-serif;
-    padding: 0;
-    margin: 0;
-    color: #000000;
+  font-family: "Oswald", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
-.landing-page {
-    display: block;
-    position: relative;
-    z-index: 0;
-    width: 100%;
-    height: 100vh;
-    background: black;
-    color: white;
-}
-
+/*2:side-bar*/
 .sidebar {
-    display: inline-block;
-    position: fixed;
-    top: 5rem;
-    opacity: 1;
-    z-index: 1;
-    background: #000000;
-    border-right: 2px solid #FFFFFF;
-    border-top: 2px solid #FFFFFF;
-    border-bottom: 2px solid #FFFFFF;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    width: 20rem;
-    height: 80vh;
+  display: inline-block;
+  position: fixed;
+  top: 5rem;
+  opacity: 0.7;
+  z-index: 1;
+  background: #000000;
+  border-right: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 20rem;
+  height: 80vh;
 }
 
 .links {
-    display: block;
-    position: relative;
-    text-align: center;
+  display: block;
+  position: relative;
+  text-align: center;
 }
 
 .tab {
-    z-index: 2;
-    background: black;
-    opacity: 1;
-    color: white;
-    line-height: 8.5rem;
-    font-size: 2rem;
-    width: 2rem;
-    padding: 1rem;
-    position: fixed;
-    height: 9rem;
-    top: 20rem;
-    left: 20rem;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-color: transparent;
-    border-top: 2px solid #FFFFFF;
-    border-bottom: 2px solid #FFFFFF;
-    border-right: 2px solid #FFFFFF;
-    cursor:pointer;
+  z-index: 1;
+  background: black;
+  color: white;
+  line-height: 8.5rem;
+  font-size: 2rem;
+  width: 2rem;
+  padding: 1rem;
+  position: fixed;
+  height: 9rem;
+  top: 22rem;
+  left: 20rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-color: transparent;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  cursor: pointer;
 }
 
 .sidebar a {
-    /* z-index:1; */
-    display: block;
-    position: relative;
-    font-size: 4rem;
-    color: #FFFFFF;
-    text-decoration: none;
-    text-align: center;
-    line-height: 170px;
+  /* z-index:1; */
+  display: flex;
+  position: relative;
+  font-size: 5rem;
+  color: #ffffff;
+  text-decoration: none;
+  line-height: 16.1vh;
 }
 
 .sidebar a:hover {
-    background: linear-gradient(to bottom right ,gray,white,white,white,white,gray);
-    color: #000000;
-
+  background: white;
+  color: #000000;
 }
 
+/*3:landing-page*/
+.landing-page {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
+}
 
 .logo {
-    font-size: 15rem;
-    text-align: center;
+  font-size: 15rem;
+  text-align: center;
 }
 
 .scroll-text {
-    top: 15rem;
-    left: -5rem;
-    display: block;
-    position: relative;
+  display: block;
+  position: relative;
+  text-align:center;
 }
 
 .scrolling {
-    font-size: 5em;
-    text-align: center;
+  font-size: 5em;
+  text-align: center;
 }
 
+.toggle input[type="checkbox"] {
+  display: none;
+}
+
+.light-theme {
+  background-color: white;
+  color: black;
+}
+
+.dark-theme {
+  background-color: black;
+  color: white;
+}
+
+.toggle label {
+    z-index:20;
+  background-color: white;
+  border: 2px solid #555;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  position: fixed;
+  transition: all ease-in-out 0.3s;
+  width: 60px;
+  height: 30px;
+  margin: 20px;
+}
+
+.toggle label::after {
+  background-color: black;
+  border-radius: 50%;
+  content: " ";
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: 1px;
+  transition: all ease-in-out 0.1s;
+  width: 30px;
+  height: 30px;
+}
+
+.toggle input[type="checkbox"]:checked ~ label {
+  background: black;
+  border-color: white;
+}
+
+.toggle input[type="checkbox"]:checked ~ label::after {
+  background-color: white;
+  transform: translateX(28px);
+}
+
+/*4:content*/
 .headers {
-    background: #000000;
-    color: #FFFFFF;
-    text-align: center;
+  text-align: center;
+  font-size: 5rem;
+  height: auto;
 }
 
 .content-body {
-    height: 100vh;
+  height: auto;
+  border: 3px solid gray;
+  padding: 20px;
 }
 
+/*about*/
+.profile {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+/*5:footer*/
+
+/*responsive css*/
 @media screen and (max-width: 400px) {
-    .logo {
-        font-size: 5rem;
-    }
-    .links {
-        font-size: 1rem;
-    }
-    .scroll-text {
-        font-size: .5rem;
-    }
-    .tab {
-        width: 1rem;
-        padding: 10px;
-        font-size: 1rem;
-        text-align: center;
-        top: 12rem;
-    }
-    .sidebar {
-        top: 0;
-        height: 100vh;
-    }
-    .sidebar a {
-        font-size: 2rem;
-    }
-    .landing-page {
-        width: 100vw;
-        padding-left: 3rem;
-    }
+  .toggle {
+    margin: 0 auto;
+    width: 75%;
+  }
+  .logo {
+    font-size: 5rem;
+  }
+  .links {
+    font-size: 1rem;
+  }
+  .scroll-text {
+    font-size: 0.6rem;
+  }
+  .tab {
+    width: 1rem;
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+    top: 12rem;
+  }
+  .sidebar {
+    top: 0;
+    height: 100vh;
+  }
+  .sidebar a {
+    font-size: 2rem;
+  }
+  .landing-page {
+    width: 100vw;
+    padding-left: 4rem;
+  }
 }
 
-@media screen and (width: 500px) {
-    .logo {
-        font-size: 8rem;
-    }
-    .tab {
-        width: 1.5rem;
-        font-size: 2rem;
-        text-align: center;
-    }
-    .landing-page {
-        width: 100vw;
-        padding-left: 4rem;
-    }
+@media screen and (width: 800px) {
+  .logo {
+    font-size: 8rem;
+  }
+  .tab {
+    width: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .landing-page {
+    width: 100vw;
+    padding-left: 1rem;
+  }
 }
 
 @media screen and (width: 1000px) {
-    .logo {
-        font-size: 8rem;
-    }
-    .landing-page {
-        width: 100vw;
-    }
-    .tab {
-        width: 2rem;
-        font-size: 2rem;
-        text-align: center;
-    }
+  .logo {
+    font-size: 8rem;
+  }
+  .landing-page {
+    width: 100vw;
+  }
+  .tab {
+    width: 2rem;
+    font-size: 2rem;
+    text-align: center;
+  }
 }
