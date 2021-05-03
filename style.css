@@ -52,7 +52,7 @@ html body {
   border-bottom: 2px solid #ffffff;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  width: 20rem;
+  width: 0;
   height: 80vh;
 }
 
@@ -224,6 +224,11 @@ html body {
     top: 0;
     height: 100vh;
   }
+
+  .sidebar-width{
+    width:20rem;
+  }
+
   .sidebar a {
     font-size: 2rem;
   }

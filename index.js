@@ -4,7 +4,7 @@ function main() {
   typingEffect();
   //snaptoView();
   sideBarToggle();
-  linksCloseAfterClick();
+  // linksCloseAfterClick();
   darkMode();
 }
 
@@ -29,68 +29,85 @@ function snaptoView() {}
 
 function sideBarToggle() {
   //Set Variables
-  isOpen = false;
-  tab = document.querySelector(".tab");
-  sideBar = document.querySelector(".sidebar");
-  links = document.querySelector(".links");
-
+  let isOpen = false;
+  let tab = document.querySelector(".tab");
+  let sideBar = document.querySelector(".sidebar");
+  let links = document.querySelector(".links");
+  let elementsArr = [tab, sideBar, links];
+  let responsiveCSS = [, "sidebar-open", "tab-left", "links-display"];
   // ResetSideBar
   sideBar.style.width = "0rem";
   tab.style.left = "0rem";
   tab.textContent = ">>>";
   links.style.display = "none";
 
+  //Change to classNames
   tab.addEventListener("click" || "touch", (event) => {
-    if (isOpen) {
-      sideBar.style.width = `22rem`;
-      tab.style.left = `22rem`;
-      tab.textContent = "<<<";
-      links.style.display = "block";
-      isOpen = false;
-    } else if (isOpen == false) {
-      sideBar.style.width = "0rem";
-      tab.style.left = "0rem";
-      tab.textContent = ">>>";
-      links.style.display = "none";
+    addClass(elementsArr, responsiveCSS, isOpen);
+    // removeClass([tab, sidebar, links], responsiveCSS, isOpen);
 
-      isOpen = true;
-    }
+    //   //
+    // sideBar.style.width = `22rem`;
+    //   tab.style.left = `22rem`;
+    //   tab.textContent = "<<<";
+    //   links.style.display = "block";
+    //   isOpen = false;
+    // } else if (isOpen == false) {
+    //   sideBar.style.width = "0rem";
+    //   tab.style.left = "0rem";
+    //   tab.textContent = ">>>";
+    //   links.style.display = "none";
+
+    //   isOpen = true;
   });
 }
 
-function linksCloseAfterClick() {
-  const a = document.querySelectorAll("a");
-  a.forEach((link) =>
-    link.addEventListener("click", (event) => {
-      console.log(link);
-      sideBar.style.width = "0rem";
-      tab.style.left = "0rem";
-      tab.textContent = ">>>";
-      links.style.display = "none";
-    })
-  );
-}
+// function linksCloseAfterClick() {
+//   const a = document.querySelectorAll("a");
+//   a.forEach((link) =>
+//     link.addEventListener("click", (event) => {
+//       sideBar.style.width = "0rem";
+//       tab.style.left = "0rem";
+//       tab.textContent = ">>>";
+//       links.style.display = "none";
+//     })
+//   );
+// }
 
 function darkMode() {
   const toggle = document.getElementById("toggle");
-  const landingPage = document.querySelector(".landing-page");
-  const headers = document.querySelectorAll(".headers");
+  let landingPage = document.querySelector(".landing-page");
+  let headers = document.querySelectorAll(".headers");
+  let elementsArr = [headers, landingPage];
+  let theme = ["dark-theme", "light-theme"];
 
   toggle.addEventListener("input", (e) => {
     const isChecked = e.target.checked;
-console.log(isChecked)
-    if (isChecked) {
-      headers.forEach(el=> el.classList.remove("light-theme"));
-      headers.forEach(el=> el.classList.add("dark-theme"));
-      landingPage.classList.remove("light-theme");
-      landingPage.classList.add("dark-theme");
-    } else {
-      headers.forEach(el=> el.classList.add("light-theme"));
-      headers.forEach(el=> el.classList.remove("dark-theme"));
-      landingPage.classList.remove("dark-theme");
-      landingPage.classList.add("light-theme");
-    }
+    addClass(elementsArr, theme, isChecked);
+    removeClass(elementsArr, theme, isChecked);
   });
+}
+
+
+
+//Helper Utilizies
+
+function addClass(elements, className, isBool) {
+  if (isBool && NodeList)
+    elements[0].forEach((el) => el.classList.add(className[0]));
+  if (!isBool && NodeList)
+    elements[0].forEach((el) => el.classList.add(className[1]));
+  if (isBool) elements[1].classList.add(className[0]);
+  if (!isBool) elements[1].classList.add(className[1]);
+}
+
+function removeClass(elements, className, isBool) {
+  if (isBool && NodeList)
+    elements[0].forEach((el) => el.classList.remove(className[1]));
+  if (!isBool && NodeList)
+    elements[0].forEach((el) => el.classList.remove(className[0]));
+  if (isBool) elements[1].classList.remove(className[1]);
+  if (!isBool) elements[1].classList.remove(className[0]);
 }
 
 window.onload = main();
