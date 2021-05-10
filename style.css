@@ -44,7 +44,6 @@ html body {
   display: inline-block;
   position: fixed;
   top: 5rem;
-  opacity: 0.7;
   z-index: 1;
   background: #000000;
   border-right: 2px solid #ffffff;
@@ -57,10 +56,10 @@ html body {
 }
 
 .links {
-  display:inline;
+  display: inline;
   position: relative;
   text-align: center;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .tab {
@@ -92,7 +91,7 @@ html body {
   color: #ffffff;
   text-decoration: none;
   line-height: 16.1vh;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .clicked {
@@ -195,15 +194,48 @@ html body {
 }
 
 .content-body {
-  display:flex;
+  display: flex;
   flex-direction: column wrap;
   height: auto;
-  border: 3px solid gray;
   padding: 20px;
+  cursor: pointer;
 }
 
 .profile-container {
-  margin:0 auto;
+  margin: 0 auto;
+}
+
+.form-control {
+  width: 60vw;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+input {
+  width: 100%;
+  height: 30px;
+}
+
+textarea {
+  width: 100%;
+  height: 60px;
+}
+
+.card {
+  border: 2px solid black;
+  border-radius:10px;
+  width: 40%;
+  height: auto;
+  margin:20px;
+  padding:10px;
+}
+.card-img {
+  width:100%;
+}
+
+.projects{
 }
 
 /*about*/
@@ -217,16 +249,16 @@ html body {
 /*5:footer*/
 
 /*responsive css*/
-@media screen and (max-width: 400px) {
+@media all and (max-width: 400px) {
   .toggle {
     margin: 0 auto;
-    width: 75%;
+    width: 100%;
   }
   .logo {
-    font-size: 5rem;
+    font-size: 1rem;
   }
   .links {
-    font-size: 1rem;
+    font-size: 7rem;
   }
   .scroll-text {
     font-size: 0.6rem;
@@ -236,67 +268,54 @@ html body {
     padding: 10px;
     font-size: 1rem;
     text-align: center;
-    top: 12rem;
+    top: 15rem;
   }
   .sidebar {
-    top: 0;
+    top: 5rem;
     height: 100vh;
   }
 
   .open {
-    width: 20rem;
+    width: 15rem;
   }
   .clicked {
-    left:20rem;
+    left: 15rem;
   }
   .visible {
-    display:flex;
+    display: flex;
   }
-
   .sidebar a {
-    font-size: 2rem;
+    font-size: 3rem;
+    padding-top: 10px;
   }
   .landing-page {
     width: 100vw;
-    padding-left: 4rem;
-    
   }
-
-  .landing-page:before{
-    width: 100vw;
-    padding-left: 4rem;
-  }
-
-  .landing-page:after {
-    transform: rotate(0,20rem);
-    background:white;
-  }
-
   .headers {
     text-align: center;
     font-size: 2rem;
     height: auto;
   }
+
+  .form-control {
+    border: 2px solid black;
+    padding: 20px;
+  }
+
+  .card {
+    border: 2px solid black;
+    border-radius:10px;
+    width: 100%;
+    height: auto;
+  }
+  .card-img {
+    width:100%;
+  }
 }
 
-@media screen and (width: 800px) {
+@media all and (max-width: 1000px) {
   .logo {
-    font-size: 8rem;
-  }
-  .tab {
-    width: 1.5rem;
-    font-size: 2rem;
-    text-align: center;
-  }
-  .landing-page {
-    width: 100vw;
-    padding-left: 1rem;
-  }
-}
-
-@media screen and (width: 1000px) {
-  .logo {
-    font-size: 8rem;
+    font-size: 10rem;
   }
   .landing-page {
     width: 100vw;
@@ -305,5 +324,11 @@ html body {
     width: 2rem;
     font-size: 2rem;
     text-align: center;
+  }
+
+  .headers {
+    text-align: center;
+    font-size: 2rem;
+    height: auto;
   }
 }
