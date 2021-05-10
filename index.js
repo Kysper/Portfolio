@@ -29,24 +29,17 @@ function snaptoView() {}
 
 function sideBarToggle() {
   //Set Variables
-  let isOpen = false;
   let tab = document.querySelector(".tab");
   let sideBar = document.querySelector(".sidebar");
-  let links = document.querySelector(".links");
-  let elementsArr = [tab, sideBar, links];
-  let responsiveCSS = [, "sidebar-open", "tab-left", "links-display"];
-  // ResetSideBar
-  sideBar.style.width = "0rem";
-  tab.style.left = "0rem";
-  tab.textContent = ">>>";
-  links.style.display = "none";
+  let links = document.querySelectorAll(".link");
 
-  //Change to classNames
   tab.addEventListener("click" || "touch", (event) => {
-    addClass(elementsArr, responsiveCSS, isOpen);
-    // removeClass([tab, sidebar, links], responsiveCSS, isOpen);
-
-    //   //
+    tab.classList.toggle("clicked");
+    sideBar.classList.toggle("open");
+    links.forEach((el) => el.classList.toggle("visible"));
+    if(tab.classList.contains('clicked')) {tab.textContent = "<<<"} else {
+      tab.textContent = ">>>"
+    }
     // sideBar.style.width = `22rem`;
     //   tab.style.left = `22rem`;
     //   tab.textContent = "<<<";
@@ -66,7 +59,7 @@ function sideBarToggle() {
 //   const a = document.querySelectorAll("a");
 //   a.forEach((link) =>
 //     link.addEventListener("click", (event) => {
-//       sideBar.style.width = "0rem";
+//       sideBar.style.width = "0rem";s
 //       tab.style.left = "0rem";
 //       tab.textContent = ">>>";
 //       links.style.display = "none";
@@ -78,36 +71,13 @@ function darkMode() {
   const toggle = document.getElementById("toggle");
   let landingPage = document.querySelector(".landing-page");
   let headers = document.querySelectorAll(".headers");
-  let elementsArr = [headers, landingPage];
-  let theme = ["dark-theme", "light-theme"];
-
+  let content = document.querySelectorAll('.content-body')
   toggle.addEventListener("input", (e) => {
     const isChecked = e.target.checked;
-    addClass(elementsArr, theme, isChecked);
-    removeClass(elementsArr, theme, isChecked);
+    headers.forEach(el => el.classList.toggle("dark-theme"));
+    content.forEach(el => el.classList.toggle("dark-theme"));
+    landingPage.classList.toggle("dark-theme");
   });
-}
-
-
-
-//Helper Utilizies
-
-function addClass(elements, className, isBool) {
-  if (isBool && NodeList)
-    elements[0].forEach((el) => el.classList.add(className[0]));
-  if (!isBool && NodeList)
-    elements[0].forEach((el) => el.classList.add(className[1]));
-  if (isBool) elements[1].classList.add(className[0]);
-  if (!isBool) elements[1].classList.add(className[1]);
-}
-
-function removeClass(elements, className, isBool) {
-  if (isBool && NodeList)
-    elements[0].forEach((el) => el.classList.remove(className[1]));
-  if (!isBool && NodeList)
-    elements[0].forEach((el) => el.classList.remove(className[0]));
-  if (isBool) elements[1].classList.remove(className[1]);
-  if (!isBool) elements[1].classList.remove(className[0]);
 }
 
 window.onload = main();
