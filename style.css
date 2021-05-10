@@ -64,23 +64,22 @@ html body {
 
 .tab {
   z-index: 1;
-  background: black;
-  color: white;
+  background: transparent;
+  color: #000000;
   line-height: 8.5rem;
   font-size: 2rem;
   width: 2rem;
   padding: 1rem;
   position: fixed;
   height: 9rem;
-  top: 22rem;
+  top: 18rem;
   left: 0rem;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-color: transparent;
-  border-top: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
-  border-right: 2px solid #ffffff;
   cursor: pointer;
+}
+
+.tab:hover {
+  background-color:transparent;
+  color:#FFFFFF;
 }
 
 .sidebar a {
@@ -194,11 +193,17 @@ html body {
 }
 
 .content-body {
-  display: flex;
-  flex-direction: column wrap;
-  height: auto;
-  padding: 20px;
-  cursor: pointer;
+  display:flex;
+  flex-direction: row-reverse;
+  align-content: space-around;
+}
+
+.skillset-education{
+  margin:0 auto;
+}
+
+.technology-container{
+  padding-right:2rem;
 }
 
 .profile-container {
@@ -223,21 +228,23 @@ textarea {
   height: 60px;
 }
 
+.projects {
+display:flex;
+flex-direction: column;
+align-items: space-between;
+
+}
+
 .card {
   border: 2px solid black;
-  border-radius:10px;
+  border-radius: 10px;
   width: 40%;
+  margin:10px;
   height: auto;
-  margin:20px;
-  padding:10px;
 }
 .card-img {
-  width:100%;
+  width: 100%;
 }
-
-.projects{
-}
-
 /*about*/
 .profile {
   display: block;
@@ -249,7 +256,7 @@ textarea {
 /*5:footer*/
 
 /*responsive css*/
-@media all and (max-width: 400px) {
+@media all and (max-width: 600px) {
   .toggle {
     margin: 0 auto;
     width: 100%;
@@ -268,7 +275,7 @@ textarea {
     padding: 10px;
     font-size: 1rem;
     text-align: center;
-    top: 15rem;
+    top: 20rem;
   }
   .sidebar {
     top: 5rem;
@@ -304,12 +311,18 @@ textarea {
 
   .card {
     border: 2px solid black;
-    border-radius:10px;
-    width: 100%;
+    border-radius: 10px;
+    width:auto;
     height: auto;
   }
   .card-img {
-    width:100%;
+    width: 100%;
+  }
+
+  .content-body{
+    flex-direction: column;
+    align-content: stretch; 
+
   }
 }
 
