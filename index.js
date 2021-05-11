@@ -4,6 +4,7 @@ function main() {
   typingEffect();
   sideBarToggle();
   darkMode();
+  projectPopOut();
 }
 
 function typingEffect() {
@@ -29,7 +30,7 @@ function sideBarToggle() {
   let sideBar = document.querySelector(".sidebar");
   let links = document.querySelectorAll(".link");
   //Adds class to open / close navbar
-  tab.addEventListener("mouseover", (event) => {
+  tab.addEventListener("click", (event) => {
     if (tab.classList.contains("clicked")) {
       tab.textContent = ">>>";
       tab.classList.toggle("clicked");
@@ -58,14 +59,44 @@ function darkMode() {
   let headers = document.querySelectorAll(".headers");
   let content = document.querySelectorAll(".content-body");
   let body = document.querySelector("body");
-    let tab = document.querySelector(".tab");
+  let tab = document.querySelector(".tab");
   toggle.addEventListener("input", (e) => {
     body.classList.toggle("dark-theme");
-    tab.classList.toggle('dark-theme')
-    tab.style.backgroundColor = 'transparent'
+    tab.classList.toggle("dark-theme");
+    tab.style.backgroundColor = "transparent";
     headers.forEach((el) => el.classList.toggle("dark-theme"));
     content.forEach((el) => el.classList.toggle("dark-theme"));
     landingPage.classList.toggle("dark-theme");
+  });
+}
+
+function projectPopOut() {
+  const card = document.querySelectorAll(".card");
+  const main = document.querySelector("main");
+  const modal = document.createElement("div");
+  const exit = document.createElement("div");
+  const exitNode = document.createTextNode("");
+  const modalNode = document.createTextNode("");
+
+  exit.append(exitNode);
+  modal.append(modalNode);
+  modal.appendChild(exit);
+
+  exit.textContent = "X";
+  exit.classList.add("exit");
+  main.append(modal);
+  card.forEach((el) =>
+    el.addEventListener("mouseenter", (e) => {
+      modal.classList.add("modal");
+    })
+  );
+
+  modal.addEventListener("mouseleave", (e) => {
+    modal.classList.remove("modal");
+  });
+
+  exit.addEventListener("click", (e) => {
+    modal.classList.remove("modal");
   });
 }
 
