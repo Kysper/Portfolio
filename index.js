@@ -73,36 +73,40 @@ function darkMode() {
 function projectPopOut() {
   const card = document.querySelectorAll(".card");
   const main = document.querySelector("main");
-
   const modal = document.createElement("div");
-  const exit = document.createElement("div");
-  const iFrame = document.createElement("iframe");
-  const exitNode = document.createTextNode("");
-  const modalNode = document.createTextNode("");
+  const pTag = document.createElement('p')
+  const pNode = document.createTextNode("")
+  pTag.append(pNode);
 
-  iFrame.setAttribute("src", "https://www.youtube.com/embed/ScMzIvxBSi4");
-  iFrame.setAttribute('fullscreen',true)
-  iFrame.classList.add('iframe')
-  exit.append(exitNode);
+  const modalNode = document.createTextNode("");
+  let url = ["NpEaa2P7qZI", "ScMzIvxBSi4", "eEzD-Y97ges"];
+  const iFrame = document.createElement("iframe");
+
+  iFrame.setAttribute("fullscreen", true);
+  iFrame.classList.add("iframe");
+
   modal.append(modalNode);
-  modal.appendChild(exit);
  
-  exit.textContent = "X";
-  exit.classList.add("exit");
   main.append(modal);
+  
   card.forEach((el) =>
     el.addEventListener("mouseenter", (e) => {
+      if (e.target.id === "card-1") {
+        iFrame.setAttribute("src", "https://www.youtube.com/embed/" + url[0]);
+      }
+      if (e.target.id === "card-2") {
+        iFrame.setAttribute("src", "https://www.youtube.com/embed/" + url[1]);
+      }
+      if (e.target.id === "card-3") {
+        iFrame.setAttribute("src", "https://www.youtube.com/embed/" + url[2]);
+      }
       modal.classList.add("modal");
       modal.appendChild(iFrame);
+      modal.appendChild(pTag)
     })
   );
 
   modal.addEventListener("mouseleave", (e) => {
-    modal.classList.remove("modal");
-    modal.removeChild(iFrame);
-  });
-
-  exit.addEventListener("click", (e) => {
     modal.classList.remove("modal");
     modal.removeChild(iFrame);
   });
