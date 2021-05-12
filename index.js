@@ -73,30 +73,38 @@ function darkMode() {
 function projectPopOut() {
   const card = document.querySelectorAll(".card");
   const main = document.querySelector("main");
+
   const modal = document.createElement("div");
   const exit = document.createElement("div");
+  const iFrame = document.createElement("iframe");
   const exitNode = document.createTextNode("");
   const modalNode = document.createTextNode("");
 
+  iFrame.setAttribute("src", "https://www.youtube.com/embed/ScMzIvxBSi4");
+  iFrame.setAttribute('fullscreen',true)
+  iFrame.classList.add('iframe')
   exit.append(exitNode);
   modal.append(modalNode);
   modal.appendChild(exit);
-
+ 
   exit.textContent = "X";
   exit.classList.add("exit");
   main.append(modal);
   card.forEach((el) =>
     el.addEventListener("mouseenter", (e) => {
       modal.classList.add("modal");
+      modal.appendChild(iFrame);
     })
   );
 
   modal.addEventListener("mouseleave", (e) => {
     modal.classList.remove("modal");
+    modal.removeChild(iFrame);
   });
 
   exit.addEventListener("click", (e) => {
     modal.classList.remove("modal");
+    modal.removeChild(iFrame);
   });
 }
 
