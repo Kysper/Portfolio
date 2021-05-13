@@ -137,6 +137,7 @@ html body {
 }
 
 .light-theme {
+
   background-color: #ffffff;
   color: #000000;
 }
@@ -257,6 +258,7 @@ textarea {
   position: relative;
   margin: 0 auto;
   border-radius: 50%;
+  width:30%;
 }
 
 .modal {
@@ -272,18 +274,6 @@ textarea {
   margin: 0 auto;
   border: 3px solid black;
   border-radius: 10px;
-}
-
-.exit {
-  z-index: 300;
-  display: inline;
-  position: fixed;
-  color: red;
-  top: -30px;
-  right: -10px;
-  float: right;
-  cursor: pointer;
-  font-size: 35px;
 }
 
 .iframe {

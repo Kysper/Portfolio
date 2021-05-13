@@ -1,5 +1,4 @@
 let tab, sideBar, links;
-
 function main() {
   typingEffect();
   sideBarToggle();
@@ -60,6 +59,7 @@ function darkMode() {
   let content = document.querySelectorAll(".content-body");
   let body = document.querySelector("body");
   let tab = document.querySelector(".tab");
+
   toggle.addEventListener("input", (e) => {
     body.classList.toggle("dark-theme");
     tab.classList.toggle("dark-theme");
@@ -71,11 +71,11 @@ function darkMode() {
 }
 
 function projectPopOut() {
-  const card = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll(".card");
   const main = document.querySelector("main");
   const modal = document.createElement("div");
-  const pTag = document.createElement('p')
-  const pNode = document.createTextNode("")
+  const pTag = document.createElement("p");
+  const pNode = document.createTextNode("");
   pTag.append(pNode);
 
   const modalNode = document.createTextNode("");
@@ -86,10 +86,10 @@ function projectPopOut() {
   iFrame.classList.add("iframe");
 
   modal.append(modalNode);
- 
+
   main.append(modal);
-  
-  card.forEach((el) =>
+
+  cards.forEach((el) =>
     el.addEventListener("mouseenter", (e) => {
       if (e.target.id === "card-1") {
         iFrame.setAttribute("src", "https://www.youtube.com/embed/" + url[0]);
@@ -102,7 +102,7 @@ function projectPopOut() {
       }
       modal.classList.add("modal");
       modal.appendChild(iFrame);
-      modal.appendChild(pTag)
+      modal.appendChild(pTag);
     })
   );
 
